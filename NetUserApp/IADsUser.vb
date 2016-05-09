@@ -1,0 +1,4 @@
+﻿
+Interface IADsUser
+
+End Interface
