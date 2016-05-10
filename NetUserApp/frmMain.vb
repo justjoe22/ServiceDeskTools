@@ -753,14 +753,26 @@ Err_btnACTReport_Click:
 
     Private Sub btnSetPassword_Click(sender As Object, e As System.EventArgs) Handles btnSetPassword.Click
 
-        Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
+        If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" Then
 
-        ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
+            txtADMuser.ForeColor = DefaultForeColor
+            txtPassword.ForeColor = DefaultForeColor
 
-        txtPASPassword.Text = randomPass
-        txtPASPassword.SelectAll()
-        txtPASPassword.Copy()
-        txtPASPassword.Focus()
+            Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
+
+            ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
+
+            txtPASPassword.Text = randomPass
+            txtPASPassword.SelectAll()
+            txtPASPassword.Copy()
+            txtPASPassword.Focus()
+
+        Else
+
+            txtADMuser.ForeColor = Color.Red
+            txtPassword.ForeColor = Color.Red
+
+        End If
 
         'Send Email message
         'Dim app As Microsoft.Office.Interop.Outlook.Application = New Microsoft.Office.Interop.Outlook.Application()

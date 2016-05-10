@@ -840,7 +840,7 @@ Partial Class frmMain
         Me.btnSetPassword.Location = New System.Drawing.Point(7, 177)
         Me.btnSetPassword.Name = "btnSetPassword"
         Me.btnSetPassword.Size = New System.Drawing.Size(164, 29)
-        Me.btnSetPassword.TabIndex = 20
+        Me.btnSetPassword.TabIndex = 26
         Me.btnSetPassword.Text = "Reset User Password"
         Me.btnSetPassword.UseVisualStyleBackColor = True
         '
@@ -849,7 +849,7 @@ Partial Class frmMain
         Me.txtUserId.Location = New System.Drawing.Point(7, 139)
         Me.txtUserId.Name = "txtUserId"
         Me.txtUserId.Size = New System.Drawing.Size(164, 20)
-        Me.txtUserId.TabIndex = 18
+        Me.txtUserId.TabIndex = 25
         '
         'Label11
         '
@@ -858,7 +858,7 @@ Partial Class frmMain
         Me.Label11.Location = New System.Drawing.Point(8, 123)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 13)
-        Me.Label11.TabIndex = 19
+        Me.Label11.TabIndex = 24
         Me.Label11.Text = "Native ID"
         '
         'btnPASCreate
@@ -867,7 +867,7 @@ Partial Class frmMain
         Me.btnPASCreate.Location = New System.Drawing.Point(7, 222)
         Me.btnPASCreate.Name = "btnPASCreate"
         Me.btnPASCreate.Size = New System.Drawing.Size(164, 29)
-        Me.btnPASCreate.TabIndex = 16
+        Me.btnPASCreate.TabIndex = 27
         Me.btnPASCreate.Text = "Create Password ONLY"
         Me.btnPASCreate.UseVisualStyleBackColor = True
         '
