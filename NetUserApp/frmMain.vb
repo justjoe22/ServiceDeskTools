@@ -4,6 +4,10 @@ Imports System.Collections
 Imports System.DirectoryServices
 Imports System.Runtime.InteropServices
 Imports ServiceDeskTools.vbValidPassword
+Imports System.Net
+Imports System.Net.Mail
+'Imports Outlook = Microsoft.Office.Interop.Outlook
+'Imports Office = Microsoft.Office.Core
 
 Public Class frmMain
     Public csvWriter As System.IO.StreamWriter
@@ -13,7 +17,7 @@ Public Class frmMain
     Dim Stopwatch As New System.Diagnostics.Stopwatch
     Dim blSwitch As Boolean = False
 
-    <DllImport("user32.dll", EntryPoint:="FlashWindow")> _
+    <DllImport("user32.dll", EntryPoint:="FlashWindow")>
     Public Shared Function FlashWindow(ByVal hwnd As Integer, ByVal bInvert As Integer) As Integer
     End Function
 
@@ -749,35 +753,57 @@ Err_btnACTReport_Click:
 
     Private Sub btnSetPassword_Click(sender As Object, e As System.EventArgs) Handles btnSetPassword.Click
 
-        txtPASPassword.Text = PasswordGenerator.RandomPassword.Generate.ToString
+        Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
 
-        ChangePassword(txtUserId.Text, txtPASPassword.Text)
+        ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
+
+        txtPASPassword.Text = randomPass
+        txtPASPassword.SelectAll()
+        txtPASPassword.Copy()
+        txtPASPassword.Focus()
+
+        'Send Email message
+        'Dim app As Microsoft.Office.Interop.Outlook.Application = New Microsoft.Office.Interop.Outlook.Application()
+        'Dim mailItem As Microsoft.Office.Interop.Outlook.MailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem)
+
+        'mailItem.Subject = "This is the subject"
+        'mailItem.To = "someone@example.com"
+        'mailItem.Body = "This is the message."
+        'mailItem.Importance = Microsoft.Office.Tools.Outlook.OlImportance.olImportanceHigh
+        'mailItem.Display(False)
+
 
     End Sub
 
-    Public Shared Sub ChangePassword(ByVal UserId As String, ByVal NewPassword As String)
+    Public Shared Sub ChangePassword(ByVal ADMid As String, ByVal ADMpassword As String, ByVal UserId As String, ByVal NewPassword As String)
 
-        Dim objUser As DirectoryEntry = GetUser(UserId)
+        Dim ProcessIP As New Process()
 
-        If objUser Is Nothing Then
-            Throw New Exception("Error changing password.  User not found")
-        End If
+        ProcessIP.StartInfo.FileName = "cmd.exe"
+        ProcessIP.StartInfo.Arguments = "/C dsquery user -u " + ADMid + " -p " + ADMpassword + " -name " + UserId
 
-        Try
-            objUser.Invoke("SetPassword", NewPassword)
-            objUser.CommitChanges()
-        Catch badPasswordEx As System.Reflection.TargetInvocationException
+        ProcessIP.StartInfo.UseShellExecute = False
+        ProcessIP.StartInfo.CreateNoWindow = True
+        ProcessIP.StartInfo.RedirectStandardOutput = True
 
-            If IsAccountLocked(UserId) Then
-                MessageBox.Show("Your account is locked.", "AccountLocked")
-            Else
-                Dim passwordLength As Integer = 8
-                MessageBox.Show("The password could not be changed.", "BadPassword")
-            End If
+        ProcessIP.Start()
+        ProcessIP.WaitForExit(1000)
 
-        Catch ex As Exception
-            Throw
-        End Try
+        Dim UserDN As String = ProcessIP.StandardOutput.ReadToEnd()
+
+        ProcessIP.Refresh()
+
+        ProcessIP.StartInfo.FileName = "cmd.exe"
+        ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + ADMid + " -p " + ADMpassword + " " + UserDN.Trim + " -pwd " + NewPassword + " -mustchpwd no"
+
+        ProcessIP.StartInfo.UseShellExecute = False
+        ProcessIP.StartInfo.CreateNoWindow = True
+        ProcessIP.StartInfo.RedirectStandardOutput = True
+
+        ProcessIP.Start()
+        ProcessIP.WaitForExit(1000)
+
+        Dim output As String = ProcessIP.StandardOutput.ReadToEnd()
 
     End Sub
 
@@ -787,7 +813,7 @@ Err_btnACTReport_Click:
         Dim objRootEntry As New DirectoryEntry(rootPath)
         Dim objAdSearcher As New DirectorySearcher(objRootEntry)
 
-        objAdSearcher.Filter = "((objectClass=user)(samAccountName=" + UserId + "))"
+        objAdSearcher.Filter = "((objectClass=user)(cn=" + UserId + "))"
 
         Dim objResult As SearchResult = objAdSearcher.FindOne()
 
@@ -934,4 +960,5 @@ Err_btnACTReport_Click:
         End If
 
     End Sub
+
 End Class

@@ -60,6 +60,7 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Tab1 = New System.Windows.Forms.TabControl()
         Me.tbPassTest = New System.Windows.Forms.TabPage()
+        Me.txtResultsPassT = New System.Windows.Forms.Label()
         Me.btnResetTestPass = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -86,6 +87,8 @@ Partial Class frmMain
         Me.txtPRNPrinter = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Password = New System.Windows.Forms.TabPage()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtADMuser = New System.Windows.Forms.TextBox()
         Me.btnSetPassword = New System.Windows.Forms.Button()
         Me.txtUserId = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -112,7 +115,8 @@ Partial Class frmMain
         Me.txtACTResults = New System.Windows.Forms.TextBox()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
         Me.tmFlash = New System.Windows.Forms.Timer(Me.components)
-        Me.txtResultsPassT = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.QueryUsers1.SuspendLayout()
         CType(Me.dgQRYResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Ping.SuspendLayout()
@@ -530,6 +534,16 @@ Partial Class frmMain
         Me.tbPassTest.Text = "Verify Password"
         Me.tbPassTest.UseVisualStyleBackColor = True
         '
+        'txtResultsPassT
+        '
+        Me.txtResultsPassT.AutoSize = True
+        Me.txtResultsPassT.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResultsPassT.ForeColor = System.Drawing.Color.Red
+        Me.txtResultsPassT.Location = New System.Drawing.Point(240, 59)
+        Me.txtResultsPassT.Name = "txtResultsPassT"
+        Me.txtResultsPassT.Size = New System.Drawing.Size(0, 13)
+        Me.txtResultsPassT.TabIndex = 8
+        '
         'btnResetTestPass
         '
         Me.btnResetTestPass.Location = New System.Drawing.Point(93, 116)
@@ -787,6 +801,10 @@ Partial Class frmMain
         '
         'Password
         '
+        Me.Password.Controls.Add(Me.Label17)
+        Me.Password.Controls.Add(Me.txtPassword)
+        Me.Password.Controls.Add(Me.Label16)
+        Me.Password.Controls.Add(Me.txtADMuser)
         Me.Password.Controls.Add(Me.btnSetPassword)
         Me.Password.Controls.Add(Me.txtUserId)
         Me.Password.Controls.Add(Me.Label11)
@@ -799,50 +817,64 @@ Partial Class frmMain
         Me.Password.Text = "Password Generator"
         Me.Password.UseVisualStyleBackColor = True
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(8, 17)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(127, 13)
+        Me.Label16.TabIndex = 22
+        Me.Label16.Text = "Your Administrator ID"
+        '
+        'txtADMuser
+        '
+        Me.txtADMuser.Location = New System.Drawing.Point(8, 33)
+        Me.txtADMuser.Name = "txtADMuser"
+        Me.txtADMuser.Size = New System.Drawing.Size(157, 20)
+        Me.txtADMuser.TabIndex = 21
+        '
         'btnSetPassword
         '
         Me.btnSetPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSetPassword.Location = New System.Drawing.Point(25, 176)
+        Me.btnSetPassword.Location = New System.Drawing.Point(7, 177)
         Me.btnSetPassword.Name = "btnSetPassword"
         Me.btnSetPassword.Size = New System.Drawing.Size(164, 29)
         Me.btnSetPassword.TabIndex = 20
-        Me.btnSetPassword.Text = "Set User Password"
+        Me.btnSetPassword.Text = "Reset User Password"
         Me.btnSetPassword.UseVisualStyleBackColor = True
-        Me.btnSetPassword.Visible = False
         '
         'txtUserId
         '
-        Me.txtUserId.Location = New System.Drawing.Point(25, 150)
+        Me.txtUserId.Location = New System.Drawing.Point(7, 139)
         Me.txtUserId.Name = "txtUserId"
         Me.txtUserId.Size = New System.Drawing.Size(164, 20)
         Me.txtUserId.TabIndex = 18
-        Me.txtUserId.Visible = False
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(26, 134)
+        Me.Label11.Location = New System.Drawing.Point(8, 123)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 13)
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Native ID"
-        Me.Label11.Visible = False
         '
         'btnPASCreate
         '
         Me.btnPASCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPASCreate.Location = New System.Drawing.Point(25, 23)
+        Me.btnPASCreate.Location = New System.Drawing.Point(7, 222)
         Me.btnPASCreate.Name = "btnPASCreate"
-        Me.btnPASCreate.Size = New System.Drawing.Size(114, 29)
+        Me.btnPASCreate.Size = New System.Drawing.Size(164, 29)
         Me.btnPASCreate.TabIndex = 16
-        Me.btnPASCreate.Text = "Create Password"
+        Me.btnPASCreate.Text = "Create Password ONLY"
         Me.btnPASCreate.UseVisualStyleBackColor = True
         '
         'txtPASPassword
         '
         Me.txtPASPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPASPassword.Location = New System.Drawing.Point(145, 23)
+        Me.txtPASPassword.Location = New System.Drawing.Point(7, 257)
         Me.txtPASPassword.Name = "txtPASPassword"
         Me.txtPASPassword.ReadOnly = True
         Me.txtPASPassword.Size = New System.Drawing.Size(217, 29)
@@ -1032,15 +1064,24 @@ Partial Class frmMain
         'tmFlash
         '
         '
-        'txtResultsPassT
+        'Label17
         '
-        Me.txtResultsPassT.AutoSize = True
-        Me.txtResultsPassT.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResultsPassT.ForeColor = System.Drawing.Color.Red
-        Me.txtResultsPassT.Location = New System.Drawing.Point(240, 59)
-        Me.txtResultsPassT.Name = "txtResultsPassT"
-        Me.txtResultsPassT.Size = New System.Drawing.Size(0, 13)
-        Me.txtResultsPassT.TabIndex = 8
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(8, 58)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(91, 13)
+        Me.Label17.TabIndex = 24
+        Me.Label17.Text = "Your Password"
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Location = New System.Drawing.Point(8, 74)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassword.Size = New System.Drawing.Size(157, 20)
+        Me.txtPassword.TabIndex = 23
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'frmMain
         '
@@ -1162,4 +1203,8 @@ Partial Class frmMain
     Friend WithEvents Label15 As Label
     Friend WithEvents btnResetTestPass As Button
     Friend WithEvents txtResultsPassT As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtADMuser As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtPassword As TextBox
 End Class
