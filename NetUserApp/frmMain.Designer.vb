@@ -539,7 +539,7 @@ Partial Class frmMain
         Me.Password.Name = "Password"
         Me.Password.Size = New System.Drawing.Size(965, 528)
         Me.Password.TabIndex = 4
-        Me.Password.Text = "Password Generator"
+        Me.Password.Text = "Password Reset/Generator"
         Me.Password.UseVisualStyleBackColor = True
         '
         'btnSOver
