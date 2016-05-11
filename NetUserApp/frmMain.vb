@@ -1079,40 +1079,64 @@ Err_btnACTReport_Click:
     End Sub
 
     Private Sub btnUnlockAcct_Click(sender As Object, e As EventArgs) Handles btnUnlockAcct.Click
+        If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" And txtUserId.Text IsNot "" Then
+            If ValidateActiveDirectoryLogin("NA", Me.txtADMuser.Text, Me.txtPassword.Text) Then
 
-        Dim ProcessIP As New Process()
+                txtADMuser.BackColor = Color.White
+                txtPassword.BackColor = Color.White
+                txtUserId.BackColor = Color.White
+                lblWrongCred.Visible = False
 
-        ProcessIP.StartInfo.FileName = "cmd.exe"
-        ProcessIP.StartInfo.Arguments = "/C dsquery user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " -name " + txtUserId.Text
+                Dim ProcessIP As New Process()
 
-        ProcessIP.StartInfo.UseShellExecute = False
-        ProcessIP.StartInfo.CreateNoWindow = True
-        ProcessIP.StartInfo.RedirectStandardOutput = True
+                ProcessIP.StartInfo.FileName = "cmd.exe"
+                ProcessIP.StartInfo.Arguments = "/C dsquery user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " -name " + txtUserId.Text
 
-        ProcessIP.Start()
-        ProcessIP.WaitForExit(1000)
+                ProcessIP.StartInfo.UseShellExecute = False
+                ProcessIP.StartInfo.CreateNoWindow = True
+                ProcessIP.StartInfo.RedirectStandardOutput = True
 
-        Dim UserDN As String = ProcessIP.StandardOutput.ReadToEnd()
+                ProcessIP.Start()
+                ProcessIP.WaitForExit(1000)
 
-        ProcessIP.Refresh()
+                Dim UserDN As String = ProcessIP.StandardOutput.ReadToEnd()
 
-        If UserDN IsNot "" Then
-            lblNativeValid.Visible = False
+                ProcessIP.Refresh()
 
-            'Unlock Account
-            ProcessIP.Refresh()
+                If UserDN IsNot "" Then
+                    lblNativeValid.Visible = False
 
-            ProcessIP.StartInfo.FileName = "cmd.exe"
-            ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " " + UserDN.Trim + " -disabled no"
+                    'Unlock Account
+                    ProcessIP.Refresh()
 
-            ProcessIP.StartInfo.UseShellExecute = False
-            ProcessIP.StartInfo.CreateNoWindow = True
-            ProcessIP.StartInfo.RedirectStandardOutput = True
+                    ProcessIP.StartInfo.FileName = "cmd.exe"
+                    ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " " + UserDN.Trim + " -disabled no"
 
-            ProcessIP.Start()
-            ProcessIP.WaitForExit(1000)
+                    ProcessIP.StartInfo.UseShellExecute = False
+                    ProcessIP.StartInfo.CreateNoWindow = True
+                    ProcessIP.StartInfo.RedirectStandardOutput = True
+
+                    ProcessIP.Start()
+                    ProcessIP.WaitForExit(1000)
+                Else
+                    lblNativeValid.Visible = True
+                End If
+
+            Else
+
+                lblWrongCred.Visible = True
+
+            End If
+
         Else
-            lblNativeValid.Visible = True
+
+            txtADMuser.BackColor = Color.Red
+            txtPassword.BackColor = Color.Red
+            txtUserId.BackColor = Color.Red
+
+            'lblRequired.Visible = True
+
+
         End If
 
     End Sub
