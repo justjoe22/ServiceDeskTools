@@ -30,6 +30,11 @@ Public Class frmMain
         Dim verDeployed As System.Version
         Dim strVerDeployed As String = ""
 
+        'Remove Old Functions. If these aren't requested after 30days we can delete the functionality.
+        Tab1.TabPages.Remove(WalkIn)
+        Tab1.TabPages.Remove(Actuate)
+        Tab1.TabPages.Remove(QueryUsers1)
+
         ' Sets the Network program Version in the Application Title.
         ' If deployed on the network the 'v.#.#.#.#' will show in the Title.
         ' If deployed locally the 'v.n/a Running Local' will show.

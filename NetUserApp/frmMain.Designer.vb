@@ -60,6 +60,7 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Tab1 = New System.Windows.Forms.TabControl()
         Me.Password = New System.Windows.Forms.TabPage()
+        Me.btnUnlockAcct = New System.Windows.Forms.Button()
         Me.lblNativeValid = New System.Windows.Forms.Label()
         Me.lblWrongCred = New System.Windows.Forms.Label()
         Me.btnSOver = New System.Windows.Forms.Button()
@@ -121,7 +122,6 @@ Partial Class frmMain
         Me.txtACTResults = New System.Windows.Forms.TextBox()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
         Me.tmFlash = New System.Windows.Forms.Timer(Me.components)
-        Me.btnUnlockAcct = New System.Windows.Forms.Button()
         Me.QueryUsers1.SuspendLayout()
         CType(Me.dgQRYResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Ping.SuspendLayout()
@@ -543,6 +543,16 @@ Partial Class frmMain
         Me.Password.TabIndex = 4
         Me.Password.Text = "Password Reset/Generator"
         Me.Password.UseVisualStyleBackColor = True
+        '
+        'btnUnlockAcct
+        '
+        Me.btnUnlockAcct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUnlockAcct.Location = New System.Drawing.Point(248, 177)
+        Me.btnUnlockAcct.Name = "btnUnlockAcct"
+        Me.btnUnlockAcct.Size = New System.Drawing.Size(168, 29)
+        Me.btnUnlockAcct.TabIndex = 32
+        Me.btnUnlockAcct.Text = "Unlock Account ONLY"
+        Me.btnUnlockAcct.UseVisualStyleBackColor = True
         '
         'lblNativeValid
         '
@@ -1137,16 +1147,6 @@ Partial Class frmMain
         '
         'tmFlash
         '
-        '
-        'btnUnlockAcct
-        '
-        Me.btnUnlockAcct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUnlockAcct.Location = New System.Drawing.Point(248, 177)
-        Me.btnUnlockAcct.Name = "btnUnlockAcct"
-        Me.btnUnlockAcct.Size = New System.Drawing.Size(168, 29)
-        Me.btnUnlockAcct.TabIndex = 32
-        Me.btnUnlockAcct.Text = "Unlock Account ONLY"
-        Me.btnUnlockAcct.UseVisualStyleBackColor = True
         '
         'frmMain
         '
