@@ -51,6 +51,9 @@ Public Class frmMain
         ' Sets Query User default Export file name.
         Me.txtQRYExport.Text = "Users-NeverExpire-Report-" + Date.Today.Month.ToString + Date.Today.Day.ToString + Date.Today.Year.ToString + ".csv"
 
+        ' Populate Administrator Credentials
+        Me.txtADMuser.Text = My.Settings.MyAdm
+        Me.txtPassword.Text = My.Settings.MyPass
 
     End Sub
 
@@ -759,8 +762,6 @@ Err_btnACTReport_Click:
             txtPassword.BackColor = Color.White
             txtUserId.BackColor = Color.White
 
-            'lblRequired.Visible = False
-
             Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
 
             ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
@@ -985,7 +986,8 @@ Err_btnACTReport_Click:
 
             txtADMuser.BackColor = Color.White
 
-            'lblRequired.Visible = False
+            My.Settings.MyAdm = txtADMuser.Text
+            My.Settings.Save()
 
         Else
 
@@ -1001,7 +1003,8 @@ Err_btnACTReport_Click:
 
             txtPassword.BackColor = Color.White
 
-            'lblRequired.Visible = False
+            My.Settings.MyPass = txtPassword.Text
+            My.Settings.Save()
 
         Else
 
