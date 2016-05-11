@@ -501,11 +501,11 @@ Partial Class frmMain
         'Tab1
         '
         Me.Tab1.Controls.Add(Me.NetUser)
-        Me.Tab1.Controls.Add(Me.tbPassTest)
-        Me.Tab1.Controls.Add(Me.WalkIn)
-        Me.Tab1.Controls.Add(Me.Printers)
-        Me.Tab1.Controls.Add(Me.Ping)
         Me.Tab1.Controls.Add(Me.Password)
+        Me.Tab1.Controls.Add(Me.tbPassTest)
+        Me.Tab1.Controls.Add(Me.Ping)
+        Me.Tab1.Controls.Add(Me.Printers)
+        Me.Tab1.Controls.Add(Me.WalkIn)
         Me.Tab1.Controls.Add(Me.Actuate)
         Me.Tab1.Controls.Add(Me.QueryUsers1)
         Me.Tab1.Dock = System.Windows.Forms.DockStyle.Fill

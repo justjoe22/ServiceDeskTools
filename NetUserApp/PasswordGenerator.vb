@@ -98,9 +98,10 @@ Module PasswordGenerator
             ' grouped by types. You can remove character groups from this
             ' array, but doing so will weaken the password strength.
             Dim charGroups As Char()() = New Char()() _
-            { _
-                PASSWORD_CHARS_LCASE.ToCharArray(), _
-                PASSWORD_CHARS_NUMERIC.ToCharArray() _
+            {
+                PASSWORD_CHARS_LCASE.ToCharArray(),
+                PASSWORD_CHARS_UCASE.ToCharArray(),
+                PASSWORD_CHARS_NUMERIC.ToCharArray()
             }
 
             'PASSWORD_CHARS_SPECIAL.ToCharArray() _

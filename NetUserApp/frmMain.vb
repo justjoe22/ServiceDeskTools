@@ -755,9 +755,9 @@ Err_btnACTReport_Click:
 
         If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" And txtUserId.Text IsNot "" Then
 
-            txtADMuser.BackColor = DefaultForeColor
-            txtPassword.BackColor = DefaultForeColor
-            txtUserId.BackColor = DefaultForeColor
+            txtADMuser.BackColor = Color.White
+            txtPassword.BackColor = Color.White
+            txtUserId.BackColor = Color.White
 
             'lblRequired.Visible = False
 
