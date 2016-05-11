@@ -60,6 +60,8 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Tab1 = New System.Windows.Forms.TabControl()
         Me.Password = New System.Windows.Forms.TabPage()
+        Me.lblNativeValid = New System.Windows.Forms.Label()
+        Me.lblWrongCred = New System.Windows.Forms.Label()
         Me.btnSOver = New System.Windows.Forms.Button()
         Me.lblRequired = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -119,8 +121,7 @@ Partial Class frmMain
         Me.txtACTResults = New System.Windows.Forms.TextBox()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
         Me.tmFlash = New System.Windows.Forms.Timer(Me.components)
-        Me.lblWrongCred = New System.Windows.Forms.Label()
-        Me.lblNativeValid = New System.Windows.Forms.Label()
+        Me.btnUnlockAcct = New System.Windows.Forms.Button()
         Me.QueryUsers1.SuspendLayout()
         CType(Me.dgQRYResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Ping.SuspendLayout()
@@ -522,6 +523,7 @@ Partial Class frmMain
         '
         'Password
         '
+        Me.Password.Controls.Add(Me.btnUnlockAcct)
         Me.Password.Controls.Add(Me.lblNativeValid)
         Me.Password.Controls.Add(Me.lblWrongCred)
         Me.Password.Controls.Add(Me.btnSOver)
@@ -541,6 +543,30 @@ Partial Class frmMain
         Me.Password.TabIndex = 4
         Me.Password.Text = "Password Reset/Generator"
         Me.Password.UseVisualStyleBackColor = True
+        '
+        'lblNativeValid
+        '
+        Me.lblNativeValid.AutoSize = True
+        Me.lblNativeValid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNativeValid.ForeColor = System.Drawing.Color.Red
+        Me.lblNativeValid.Location = New System.Drawing.Point(171, 141)
+        Me.lblNativeValid.Name = "lblNativeValid"
+        Me.lblNativeValid.Size = New System.Drawing.Size(215, 16)
+        Me.lblNativeValid.TabIndex = 31
+        Me.lblNativeValid.Text = "Please enter a valid Native ID"
+        Me.lblNativeValid.Visible = False
+        '
+        'lblWrongCred
+        '
+        Me.lblWrongCred.AutoSize = True
+        Me.lblWrongCred.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWrongCred.ForeColor = System.Drawing.Color.Red
+        Me.lblWrongCred.Location = New System.Drawing.Point(171, 75)
+        Me.lblWrongCred.Name = "lblWrongCred"
+        Me.lblWrongCred.Size = New System.Drawing.Size(449, 16)
+        Me.lblWrongCred.TabIndex = 30
+        Me.lblWrongCred.Text = "Your Administrator ID or Password is incorrect. Please try again."
+        Me.lblWrongCred.Visible = False
         '
         'btnSOver
         '
@@ -604,9 +630,9 @@ Partial Class frmMain
         Me.btnSetPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSetPassword.Location = New System.Drawing.Point(7, 177)
         Me.btnSetPassword.Name = "btnSetPassword"
-        Me.btnSetPassword.Size = New System.Drawing.Size(164, 29)
+        Me.btnSetPassword.Size = New System.Drawing.Size(235, 29)
         Me.btnSetPassword.TabIndex = 26
-        Me.btnSetPassword.Text = "Reset User Password"
+        Me.btnSetPassword.Text = "Reset Password + Unlock Account"
         Me.btnSetPassword.UseVisualStyleBackColor = True
         '
         'txtUserId
@@ -1112,29 +1138,15 @@ Partial Class frmMain
         'tmFlash
         '
         '
-        'lblWrongCred
+        'btnUnlockAcct
         '
-        Me.lblWrongCred.AutoSize = True
-        Me.lblWrongCred.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWrongCred.ForeColor = System.Drawing.Color.Red
-        Me.lblWrongCred.Location = New System.Drawing.Point(171, 75)
-        Me.lblWrongCred.Name = "lblWrongCred"
-        Me.lblWrongCred.Size = New System.Drawing.Size(449, 16)
-        Me.lblWrongCred.TabIndex = 30
-        Me.lblWrongCred.Text = "Your Administrator ID or Password is incorrect. Please try again."
-        Me.lblWrongCred.Visible = False
-        '
-        'lblNativeValid
-        '
-        Me.lblNativeValid.AutoSize = True
-        Me.lblNativeValid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNativeValid.ForeColor = System.Drawing.Color.Red
-        Me.lblNativeValid.Location = New System.Drawing.Point(171, 141)
-        Me.lblNativeValid.Name = "lblNativeValid"
-        Me.lblNativeValid.Size = New System.Drawing.Size(215, 16)
-        Me.lblNativeValid.TabIndex = 31
-        Me.lblNativeValid.Text = "Please enter a valid Native ID"
-        Me.lblNativeValid.Visible = False
+        Me.btnUnlockAcct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUnlockAcct.Location = New System.Drawing.Point(248, 177)
+        Me.btnUnlockAcct.Name = "btnUnlockAcct"
+        Me.btnUnlockAcct.Size = New System.Drawing.Size(168, 29)
+        Me.btnUnlockAcct.TabIndex = 32
+        Me.btnUnlockAcct.Text = "Unlock Account ONLY"
+        Me.btnUnlockAcct.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -1264,4 +1276,5 @@ Partial Class frmMain
     Friend WithEvents btnSOver As Button
     Friend WithEvents lblWrongCred As Label
     Friend WithEvents lblNativeValid As Label
+    Friend WithEvents btnUnlockAcct As Button
 End Class

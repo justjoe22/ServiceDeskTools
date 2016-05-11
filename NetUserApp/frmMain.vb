@@ -829,6 +829,7 @@ Err_btnACTReport_Click:
         If UserDN IsNot "" Then
             frmMain.lblNativeValid.Visible = False
 
+            'Reset Password
             ProcessIP.StartInfo.FileName = "cmd.exe"
             ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + ADMid + " -p " + ADMpassword + " " + UserDN.Trim + " -pwd " + NewPassword + " -mustchpwd no"
 
@@ -839,7 +840,18 @@ Err_btnACTReport_Click:
             ProcessIP.Start()
             ProcessIP.WaitForExit(1000)
 
-            Dim output As String = ProcessIP.StandardOutput.ReadToEnd()
+            'Unlock Account
+            ProcessIP.Refresh()
+
+            ProcessIP.StartInfo.FileName = "cmd.exe"
+            ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + ADMid + " -p " + ADMpassword + " " + UserDN.Trim + " -disabled no"
+
+            ProcessIP.StartInfo.UseShellExecute = False
+            ProcessIP.StartInfo.CreateNoWindow = True
+            ProcessIP.StartInfo.RedirectStandardOutput = True
+
+            ProcessIP.Start()
+            ProcessIP.WaitForExit(1000)
         Else
             frmMain.lblNativeValid.Visible = True
         End If
@@ -1066,4 +1078,42 @@ Err_btnACTReport_Click:
 
     End Sub
 
+    Private Sub btnUnlockAcct_Click(sender As Object, e As EventArgs) Handles btnUnlockAcct.Click
+
+        Dim ProcessIP As New Process()
+
+        ProcessIP.StartInfo.FileName = "cmd.exe"
+        ProcessIP.StartInfo.Arguments = "/C dsquery user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " -name " + txtUserId.Text
+
+        ProcessIP.StartInfo.UseShellExecute = False
+        ProcessIP.StartInfo.CreateNoWindow = True
+        ProcessIP.StartInfo.RedirectStandardOutput = True
+
+        ProcessIP.Start()
+        ProcessIP.WaitForExit(1000)
+
+        Dim UserDN As String = ProcessIP.StandardOutput.ReadToEnd()
+
+        ProcessIP.Refresh()
+
+        If UserDN IsNot "" Then
+            lblNativeValid.Visible = False
+
+            'Unlock Account
+            ProcessIP.Refresh()
+
+            ProcessIP.StartInfo.FileName = "cmd.exe"
+            ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + txtADMuser.Text + " -p " + txtPassword.Text + " " + UserDN.Trim + " -disabled no"
+
+            ProcessIP.StartInfo.UseShellExecute = False
+            ProcessIP.StartInfo.CreateNoWindow = True
+            ProcessIP.StartInfo.RedirectStandardOutput = True
+
+            ProcessIP.Start()
+            ProcessIP.WaitForExit(1000)
+        Else
+            lblNativeValid.Visible = True
+        End If
+
+    End Sub
 End Class
