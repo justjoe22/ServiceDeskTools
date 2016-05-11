@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Service Desk Tools")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Alticor, Inc")> 
-<Assembly: AssemblyProduct("Service Desk Tools")> 
-<Assembly: AssemblyCopyright("Copyright © Alticor, Inc 2011")> 
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("Amway")>
+<Assembly: AssemblyProduct("Service Desk Tools")>
+<Assembly: AssemblyCopyright("Copyright © Amway 2016")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
