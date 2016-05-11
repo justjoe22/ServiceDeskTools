@@ -753,10 +753,13 @@ Err_btnACTReport_Click:
 
     Private Sub btnSetPassword_Click(sender As Object, e As System.EventArgs) Handles btnSetPassword.Click
 
-        If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" Then
+        If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" And txtUserId.Text IsNot "" Then
 
-            txtADMuser.ForeColor = DefaultForeColor
-            txtPassword.ForeColor = DefaultForeColor
+            txtADMuser.BackColor = DefaultForeColor
+            txtPassword.BackColor = DefaultForeColor
+            txtUserId.BackColor = DefaultForeColor
+
+            'lblRequired.Visible = False
 
             Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
 
@@ -769,8 +772,12 @@ Err_btnACTReport_Click:
 
         Else
 
-            txtADMuser.ForeColor = Color.Red
-            txtPassword.ForeColor = Color.Red
+            txtADMuser.BackColor = Color.Red
+            txtPassword.BackColor = Color.Red
+            txtUserId.BackColor = Color.Red
+
+            'lblRequired.Visible = True
+
 
         End If
 
@@ -973,4 +980,51 @@ Err_btnACTReport_Click:
 
     End Sub
 
+    Private Sub txtADMuser_TextChanged(sender As Object, e As EventArgs) Handles txtADMuser.TextChanged
+        If txtADMuser.Text IsNot "" Then
+
+            txtADMuser.BackColor = Color.White
+
+            'lblRequired.Visible = False
+
+        Else
+
+            txtADMuser.BackColor = Color.Red
+
+            'lblRequired.Visible = True
+
+        End If
+    End Sub
+
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
+        If txtPassword.Text IsNot "" Then
+
+            txtPassword.BackColor = Color.White
+
+            'lblRequired.Visible = False
+
+        Else
+
+            txtPassword.BackColor = Color.Red
+
+            'lblRequired.Visible = True
+
+        End If
+    End Sub
+
+    Private Sub txtUserId_TextChanged(sender As Object, e As EventArgs) Handles txtUserId.TextChanged
+        If txtUserId.Text IsNot "" Then
+
+            txtUserId.BackColor = Color.White
+
+            'lblRequired.Visible = False
+
+        Else
+
+            txtUserId.BackColor = Color.Red
+
+            'lblRequired.Visible = True
+
+        End If
+    End Sub
 End Class

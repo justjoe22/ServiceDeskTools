@@ -87,6 +87,9 @@ Partial Class frmMain
         Me.txtPRNPrinter = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Password = New System.Windows.Forms.TabPage()
+        Me.lblRequired = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtADMuser = New System.Windows.Forms.TextBox()
         Me.btnSetPassword = New System.Windows.Forms.Button()
@@ -115,8 +118,6 @@ Partial Class frmMain
         Me.txtACTResults = New System.Windows.Forms.TextBox()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
         Me.tmFlash = New System.Windows.Forms.Timer(Me.components)
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.QueryUsers1.SuspendLayout()
         CType(Me.dgQRYResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Ping.SuspendLayout()
@@ -801,6 +802,7 @@ Partial Class frmMain
         '
         'Password
         '
+        Me.Password.Controls.Add(Me.lblRequired)
         Me.Password.Controls.Add(Me.Label17)
         Me.Password.Controls.Add(Me.txtPassword)
         Me.Password.Controls.Add(Me.Label16)
@@ -816,6 +818,36 @@ Partial Class frmMain
         Me.Password.TabIndex = 4
         Me.Password.Text = "Password Generator"
         Me.Password.UseVisualStyleBackColor = True
+        '
+        'lblRequired
+        '
+        Me.lblRequired.AutoSize = True
+        Me.lblRequired.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRequired.ForeColor = System.Drawing.Color.Red
+        Me.lblRequired.Location = New System.Drawing.Point(171, 33)
+        Me.lblRequired.Name = "lblRequired"
+        Me.lblRequired.Size = New System.Drawing.Size(384, 16)
+        Me.lblRequired.TabIndex = 28
+        Me.lblRequired.Text = "* Administrator ID, Password and Native ID is required."
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(8, 58)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(91, 13)
+        Me.Label17.TabIndex = 24
+        Me.Label17.Text = "Your Password"
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Location = New System.Drawing.Point(8, 74)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassword.Size = New System.Drawing.Size(157, 20)
+        Me.txtPassword.TabIndex = 23
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'Label16
         '
@@ -857,9 +889,9 @@ Partial Class frmMain
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(8, 123)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(61, 13)
+        Me.Label11.Size = New System.Drawing.Size(113, 13)
         Me.Label11.TabIndex = 24
-        Me.Label11.Text = "Native ID"
+        Me.Label11.Text = "Native ID to Reset"
         '
         'btnPASCreate
         '
@@ -1064,25 +1096,6 @@ Partial Class frmMain
         'tmFlash
         '
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(8, 58)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(91, 13)
-        Me.Label17.TabIndex = 24
-        Me.Label17.Text = "Your Password"
-        '
-        'txtPassword
-        '
-        Me.txtPassword.Location = New System.Drawing.Point(8, 74)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(157, 20)
-        Me.txtPassword.TabIndex = 23
-        Me.txtPassword.UseSystemPasswordChar = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1207,4 +1220,5 @@ Partial Class frmMain
     Friend WithEvents txtADMuser As TextBox
     Friend WithEvents Label17 As Label
     Friend WithEvents txtPassword As TextBox
+    Friend WithEvents lblRequired As Label
 End Class
