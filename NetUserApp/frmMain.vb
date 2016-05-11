@@ -758,21 +758,24 @@ Err_btnACTReport_Click:
 
         If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" And txtUserId.Text IsNot "" Then
             If ValidateActiveDirectoryLogin("NA", Me.txtADMuser.Text, Me.txtPassword.Text) Then
+                If MessageBox.Show("Are you sure you want to change the password?", "**** Reset User Password ****", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
 
-                txtADMuser.BackColor = Color.White
-                txtPassword.BackColor = Color.White
-                txtUserId.BackColor = Color.White
-                lblWrongCred.Visible = False
+                    txtADMuser.BackColor = Color.White
+                    txtPassword.BackColor = Color.White
+                    txtUserId.BackColor = Color.White
+                    lblWrongCred.Visible = False
 
-                Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
+                    Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
 
-                ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
+                    ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
 
-                If lblNativeValid.Visible = False Then
-                    txtPASPassword.Text = randomPass
-                    txtPASPassword.SelectAll()
-                    txtPASPassword.Copy()
-                    txtPASPassword.Focus()
+                    If lblNativeValid.Visible = False Then
+                        txtPASPassword.Text = randomPass
+                        txtPASPassword.SelectAll()
+                        txtPASPassword.Copy()
+                        txtPASPassword.Focus()
+                    End If
+
                 End If
 
             Else
