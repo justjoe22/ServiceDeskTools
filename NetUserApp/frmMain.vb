@@ -1030,4 +1030,18 @@ Err_btnACTReport_Click:
 
         End If
     End Sub
+
+    Private Sub btnSOver_Click(sender As Object, e As EventArgs) Handles btnSOver.Click
+
+        txtADMuser.Text = My.Settings.MyAdm
+        txtPassword.Text = My.Settings.MyPass
+        txtUserId.Text = ""
+        txtPASPassword.Text = ""
+
+        txtADMuser.BackColor = Color.White
+        txtPassword.BackColor = Color.White
+        txtUserId.BackColor = Color.White
+
+    End Sub
+
 End Class
