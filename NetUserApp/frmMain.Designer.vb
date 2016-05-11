@@ -119,6 +119,8 @@ Partial Class frmMain
         Me.txtACTResults = New System.Windows.Forms.TextBox()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
         Me.tmFlash = New System.Windows.Forms.Timer(Me.components)
+        Me.lblWrongCred = New System.Windows.Forms.Label()
+        Me.lblNativeValid = New System.Windows.Forms.Label()
         Me.QueryUsers1.SuspendLayout()
         CType(Me.dgQRYResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Ping.SuspendLayout()
@@ -520,6 +522,8 @@ Partial Class frmMain
         '
         'Password
         '
+        Me.Password.Controls.Add(Me.lblNativeValid)
+        Me.Password.Controls.Add(Me.lblWrongCred)
         Me.Password.Controls.Add(Me.btnSOver)
         Me.Password.Controls.Add(Me.lblRequired)
         Me.Password.Controls.Add(Me.Label17)
@@ -1108,6 +1112,30 @@ Partial Class frmMain
         'tmFlash
         '
         '
+        'lblWrongCred
+        '
+        Me.lblWrongCred.AutoSize = True
+        Me.lblWrongCred.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWrongCred.ForeColor = System.Drawing.Color.Red
+        Me.lblWrongCred.Location = New System.Drawing.Point(171, 75)
+        Me.lblWrongCred.Name = "lblWrongCred"
+        Me.lblWrongCred.Size = New System.Drawing.Size(449, 16)
+        Me.lblWrongCred.TabIndex = 30
+        Me.lblWrongCred.Text = "Your Administrator ID or Password is incorrect. Please try again."
+        Me.lblWrongCred.Visible = False
+        '
+        'lblNativeValid
+        '
+        Me.lblNativeValid.AutoSize = True
+        Me.lblNativeValid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNativeValid.ForeColor = System.Drawing.Color.Red
+        Me.lblNativeValid.Location = New System.Drawing.Point(171, 141)
+        Me.lblNativeValid.Name = "lblNativeValid"
+        Me.lblNativeValid.Size = New System.Drawing.Size(215, 16)
+        Me.lblNativeValid.TabIndex = 31
+        Me.lblNativeValid.Text = "Please enter a valid Native ID"
+        Me.lblNativeValid.Visible = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1234,4 +1262,6 @@ Partial Class frmMain
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents lblRequired As Label
     Friend WithEvents btnSOver As Button
+    Friend WithEvents lblWrongCred As Label
+    Friend WithEvents lblNativeValid As Label
 End Class

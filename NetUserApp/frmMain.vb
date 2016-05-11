@@ -757,19 +757,29 @@ Err_btnACTReport_Click:
     Private Sub btnSetPassword_Click(sender As Object, e As System.EventArgs) Handles btnSetPassword.Click
 
         If txtADMuser.Text IsNot "" And txtPassword.Text IsNot "" And txtUserId.Text IsNot "" Then
+            If ValidateActiveDirectoryLogin("NA", Me.txtADMuser.Text, Me.txtPassword.Text) Then
 
-            txtADMuser.BackColor = Color.White
-            txtPassword.BackColor = Color.White
-            txtUserId.BackColor = Color.White
+                txtADMuser.BackColor = Color.White
+                txtPassword.BackColor = Color.White
+                txtUserId.BackColor = Color.White
+                lblWrongCred.Visible = False
 
-            Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
+                Dim randomPass As String = PasswordGenerator.RandomPassword.Generate.ToString
 
-            ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
+                ChangePassword(txtADMuser.Text, txtPassword.Text, txtUserId.Text, randomPass)
 
-            txtPASPassword.Text = randomPass
-            txtPASPassword.SelectAll()
-            txtPASPassword.Copy()
-            txtPASPassword.Focus()
+                If lblNativeValid.Visible = False Then
+                    txtPASPassword.Text = randomPass
+                    txtPASPassword.SelectAll()
+                    txtPASPassword.Copy()
+                    txtPASPassword.Focus()
+                End If
+
+            Else
+
+                lblWrongCred.Visible = True
+
+            End If
 
         Else
 
@@ -813,17 +823,23 @@ Err_btnACTReport_Click:
 
         ProcessIP.Refresh()
 
-        ProcessIP.StartInfo.FileName = "cmd.exe"
-        ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + ADMid + " -p " + ADMpassword + " " + UserDN.Trim + " -pwd " + NewPassword + " -mustchpwd no"
+        If UserDN IsNot "" Then
+            frmMain.lblNativeValid.Visible = False
 
-        ProcessIP.StartInfo.UseShellExecute = False
-        ProcessIP.StartInfo.CreateNoWindow = True
-        ProcessIP.StartInfo.RedirectStandardOutput = True
+            ProcessIP.StartInfo.FileName = "cmd.exe"
+            ProcessIP.StartInfo.Arguments = "/C dsmod user -u " + ADMid + " -p " + ADMpassword + " " + UserDN.Trim + " -pwd " + NewPassword + " -mustchpwd no"
 
-        ProcessIP.Start()
-        ProcessIP.WaitForExit(1000)
+            ProcessIP.StartInfo.UseShellExecute = False
+            ProcessIP.StartInfo.CreateNoWindow = True
+            ProcessIP.StartInfo.RedirectStandardOutput = True
 
-        Dim output As String = ProcessIP.StandardOutput.ReadToEnd()
+            ProcessIP.Start()
+            ProcessIP.WaitForExit(1000)
+
+            Dim output As String = ProcessIP.StandardOutput.ReadToEnd()
+        Else
+            frmMain.lblNativeValid.Visible = True
+        End If
 
     End Sub
 
@@ -1037,6 +1053,9 @@ Err_btnACTReport_Click:
         txtPassword.Text = My.Settings.MyPass
         txtUserId.Text = ""
         txtPASPassword.Text = ""
+
+        lblWrongCred.Visible = False
+        lblNativeValid.Visible = False
 
         txtADMuser.BackColor = Color.White
         txtPassword.BackColor = Color.White
