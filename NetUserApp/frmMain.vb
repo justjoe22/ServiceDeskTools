@@ -791,9 +791,18 @@ Err_btnACTReport_Click:
 
         Else
 
-            txtADMuser.BackColor = Color.Red
-            txtPassword.BackColor = Color.Red
-            txtUserId.BackColor = Color.Red
+            If txtADMuser.Text Is "" Then
+                txtADMuser.BackColor = Color.Red
+            End If
+
+            If txtPassword.Text Is "" Then
+                txtPassword.BackColor = Color.Red
+            End If
+
+            If txtUserId.Text Is "" Then
+                txtUserId.BackColor = Color.Red
+            End If
+
 
             'lblRequired.Visible = True
 
@@ -1135,9 +1144,17 @@ Err_btnACTReport_Click:
 
         Else
 
-            txtADMuser.BackColor = Color.Red
-            txtPassword.BackColor = Color.Red
-            txtUserId.BackColor = Color.Red
+            If txtADMuser.Text Is "" Then
+                txtADMuser.BackColor = Color.Red
+            End If
+
+            If txtPassword.Text Is "" Then
+                txtPassword.BackColor = Color.Red
+            End If
+
+            If txtUserId.Text Is "" Then
+                txtUserId.BackColor = Color.Red
+            End If
 
             'lblRequired.Visible = True
 
@@ -1145,4 +1162,13 @@ Err_btnACTReport_Click:
         End If
 
     End Sub
+
+    Private Sub lblLinkMe_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblLinkMe.LinkClicked
+
+        Dim webAddress As String = "http://help.amwayconnect.com/Assets/Docs/Amway%20Remote%20Access%20-%20SSO%20Portal%20Password%20Quick%20Guide.pdf"
+
+        Process.Start(webAddress)
+
+    End Sub
+
 End Class
