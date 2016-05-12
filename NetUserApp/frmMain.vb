@@ -91,7 +91,7 @@ Public Class frmMain
         Me.dgQRYResult.Rows.Clear()
         Me.lblResults.Text = "Returned Results: 0"
         Me.rdoQRY1.Checked = True
-        Me.txtQRYQuery.Text = "OU=Users,OU=IT,OU=Alticor,DC=na,DC=intranet,DC=msd"
+        Me.txtQRYQuery.Text = "OU=Users,OU=IT,OU={BussName},DC=na,DC=intranet,DC=msd"
         Me.txtQRYFilter.Text = "JOB,CMN,LAB,FAX,TEST,SUPER,PUBLIC,QA,COS,LIQ,PCM,HTA,ENG,PCM,POW,PP,USC,USD,USH,USL,USP,VIP,HILO,SSC,PRE,ELE,WAB,LIN,C0,FO,PH,WU,TEST,PHN,SCA,SHI,IV,IU,AUDI,EPL,CFM,WEB,INTE,AAG,HOT,MTS,NATE,USER,WIN,TS,WOL,WS,QCC,REC,HAZ,ILI,JDE,JDU,LCM,TIME,TRAN,DEV,CIT,STAG,TRAIN,GRA,MIX,MAC,BAR,TECH,JDU,MFG,LOG,JBL,NWG,BLEN,C2,C3,LVS,L0,PDL,SDL,VNMWEB,POS,USA,APX511"
         Me.txtQRYFilter.Enabled = True
         Me.chkQRYFilter.Checked = True

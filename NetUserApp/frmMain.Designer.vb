@@ -204,7 +204,7 @@ Partial Class frmMain
         Me.txtQRYQuery.Name = "txtQRYQuery"
         Me.txtQRYQuery.Size = New System.Drawing.Size(383, 20)
         Me.txtQRYQuery.TabIndex = 1
-        Me.txtQRYQuery.Text = "OU=Users,OU=IT,OU=Alticor,DC=na,DC=intranet,DC=msd"
+        Me.txtQRYQuery.Text = "OU=Users,OU=IT,OU={BussName},DC=na,DC=intranet,DC=msd"
         '
         'lblQRYDone
         '
