@@ -704,10 +704,10 @@ Partial Class frmMain
         Me.lblInstructions.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblInstructions.Location = New System.Drawing.Point(14, 28)
         Me.lblInstructions.Name = "lblInstructions"
-        Me.lblInstructions.Size = New System.Drawing.Size(635, 17)
+        Me.lblInstructions.Size = New System.Drawing.Size(644, 17)
         Me.lblInstructions.TabIndex = 33
-        Me.lblInstructions.Text = "Before resetting an individuals password please walk them through the OKTA proces" &
-    "s." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblInstructions.Text = "Before resetting an individual's password, please walk them through the OKTA proc" &
+    "ess." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'btnSOver
         '
