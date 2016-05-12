@@ -52,6 +52,8 @@ Partial Class frmMain
         Me.txtIPAdd = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NetUser = New System.Windows.Forms.TabPage()
+        Me.txtPC = New System.Windows.Forms.TextBox()
+        Me.btnRemote = New System.Windows.Forms.Button()
         Me.btnUSRReset = New System.Windows.Forms.Button()
         Me.btnUSROk = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -436,6 +438,8 @@ Partial Class frmMain
         '
         'NetUser
         '
+        Me.NetUser.Controls.Add(Me.txtPC)
+        Me.NetUser.Controls.Add(Me.btnRemote)
         Me.NetUser.Controls.Add(Me.btnUSRReset)
         Me.NetUser.Controls.Add(Me.btnUSROk)
         Me.NetUser.Controls.Add(Me.Label2)
@@ -449,6 +453,22 @@ Partial Class frmMain
         Me.NetUser.TabIndex = 0
         Me.NetUser.Text = "User Info."
         Me.NetUser.UseVisualStyleBackColor = True
+        '
+        'txtPC
+        '
+        Me.txtPC.Location = New System.Drawing.Point(607, 22)
+        Me.txtPC.Name = "txtPC"
+        Me.txtPC.Size = New System.Drawing.Size(234, 20)
+        Me.txtPC.TabIndex = 11
+        '
+        'btnRemote
+        '
+        Me.btnRemote.Location = New System.Drawing.Point(847, 19)
+        Me.btnRemote.Name = "btnRemote"
+        Me.btnRemote.Size = New System.Drawing.Size(108, 25)
+        Me.btnRemote.TabIndex = 10
+        Me.btnRemote.Text = "Remote Control"
+        Me.btnRemote.UseVisualStyleBackColor = True
         '
         'btnUSRReset
         '
@@ -1342,4 +1362,6 @@ Partial Class frmMain
     Friend WithEvents btnSetPassword As Button
     Friend WithEvents txtUserId As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents btnRemote As Button
+    Friend WithEvents txtPC As TextBox
 End Class

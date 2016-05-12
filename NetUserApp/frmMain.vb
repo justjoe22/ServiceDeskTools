@@ -1171,4 +1171,42 @@ Err_btnACTReport_Click:
 
     End Sub
 
+    Private Sub btnRemote_Click(sender As Object, e As EventArgs) Handles btnRemote.Click
+
+        If txtPC.Text IsNot "" Then
+
+            Dim remote_path As String = txtPC.Text
+
+            Dim ProcessIP As New Process()
+
+            ProcessIP.StartInfo.FileName = "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe"
+            ProcessIP.StartInfo.Arguments = remote_path
+
+            ProcessIP.StartInfo.UseShellExecute = False
+
+            ProcessIP.Start()
+            ProcessIP.WaitForExit(1000)
+
+            'ProcessIP.StartInfo.UserName = txtADMuser.Text
+            'ProcessIP.StartInfo.Password = LoadSecureString(txtPassword.Text)
+            'ProcessIP.StartInfo.Domain = "NA"
+            'ProcessIP.StartInfo.Verb = "runas"
+            'ProcessIP.Start()
+
+        End If
+
+    End Sub
+
+    Public Shared Function LoadSecureString(ByVal input As String) As System.Security.SecureString
+        LoadSecureString = Nothing
+
+        If Not String.IsNullOrEmpty(input) Then
+            LoadSecureString = New System.Security.SecureString
+            For Each character As Char In input.ToCharArray
+                LoadSecureString.AppendChar(character)
+            Next
+            LoadSecureString.MakeReadOnly()
+        End If
+
+    End Function
 End Class
