@@ -73,6 +73,7 @@ Public Class frmMain
 
         Me.txtUSRNativeId.Text = ""
         Me.txtUSRResults.Text = ""
+        Me.txtPC.Text = ""
 
     End Sub
 

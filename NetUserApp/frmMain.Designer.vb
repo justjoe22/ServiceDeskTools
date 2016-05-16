@@ -384,7 +384,7 @@ Partial Class frmMain
         Me.btnIPReset.Name = "btnIPReset"
         Me.btnIPReset.Size = New System.Drawing.Size(75, 25)
         Me.btnIPReset.TabIndex = 14
-        Me.btnIPReset.Text = "&Reset"
+        Me.btnIPReset.Text = "&Start Over"
         Me.btnIPReset.UseVisualStyleBackColor = True
         '
         'btnIPOk
@@ -467,7 +467,7 @@ Partial Class frmMain
         Me.btnRemote.Name = "btnRemote"
         Me.btnRemote.Size = New System.Drawing.Size(108, 25)
         Me.btnRemote.TabIndex = 10
-        Me.btnRemote.Text = "Remote Control"
+        Me.btnRemote.Text = "&Remote Control"
         Me.btnRemote.UseVisualStyleBackColor = True
         '
         'btnUSRReset
@@ -476,7 +476,7 @@ Partial Class frmMain
         Me.btnUSRReset.Name = "btnUSRReset"
         Me.btnUSRReset.Size = New System.Drawing.Size(75, 25)
         Me.btnUSRReset.TabIndex = 3
-        Me.btnUSRReset.Text = "&Reset"
+        Me.btnUSRReset.Text = "&Start Over"
         Me.btnUSRReset.UseVisualStyleBackColor = True
         '
         'btnUSROk
@@ -587,7 +587,7 @@ Partial Class frmMain
         Me.btnUnlockAcct.Name = "btnUnlockAcct"
         Me.btnUnlockAcct.Size = New System.Drawing.Size(168, 29)
         Me.btnUnlockAcct.TabIndex = 37
-        Me.btnUnlockAcct.Text = "Unlock Account ONLY"
+        Me.btnUnlockAcct.Text = "&Unlock Account ONLY"
         Me.btnUnlockAcct.UseVisualStyleBackColor = True
         '
         'lblNativeValid
@@ -610,7 +610,7 @@ Partial Class frmMain
         Me.btnSetPassword.Name = "btnSetPassword"
         Me.btnSetPassword.Size = New System.Drawing.Size(235, 29)
         Me.btnSetPassword.TabIndex = 35
-        Me.btnSetPassword.Text = "Reset Password + Unlock Account"
+        Me.btnSetPassword.Text = "&Reset Password + Unlock Account"
         Me.btnSetPassword.UseVisualStyleBackColor = True
         '
         'txtUserId
@@ -736,7 +736,7 @@ Partial Class frmMain
         Me.btnSOver.Name = "btnSOver"
         Me.btnSOver.Size = New System.Drawing.Size(92, 29)
         Me.btnSOver.TabIndex = 40
-        Me.btnSOver.Text = "Start Over"
+        Me.btnSOver.Text = "&Start Over"
         Me.btnSOver.UseVisualStyleBackColor = True
         '
         'btnPASCreate
@@ -746,7 +746,7 @@ Partial Class frmMain
         Me.btnPASCreate.Name = "btnPASCreate"
         Me.btnPASCreate.Size = New System.Drawing.Size(182, 29)
         Me.btnPASCreate.TabIndex = 38
-        Me.btnPASCreate.Text = "Create Password ONLY -->"
+        Me.btnPASCreate.Text = "&Create Password ONLY -->"
         Me.btnPASCreate.UseVisualStyleBackColor = True
         '
         'txtPASPassword
@@ -792,7 +792,7 @@ Partial Class frmMain
         Me.btnResetTestPass.Name = "btnResetTestPass"
         Me.btnResetTestPass.Size = New System.Drawing.Size(100, 23)
         Me.btnResetTestPass.TabIndex = 7
-        Me.btnResetTestPass.Text = "Reset"
+        Me.btnResetTestPass.Text = "&Start Over"
         Me.btnResetTestPass.UseVisualStyleBackColor = True
         '
         'Label15
@@ -831,7 +831,7 @@ Partial Class frmMain
         Me.btnTestPass.Name = "btnTestPass"
         Me.btnTestPass.Size = New System.Drawing.Size(100, 23)
         Me.btnTestPass.TabIndex = 2
-        Me.btnTestPass.Text = "Test Password"
+        Me.btnTestPass.Text = "&Test Password"
         Me.btnTestPass.UseVisualStyleBackColor = True
         '
         'txtPassTest
@@ -890,7 +890,7 @@ Partial Class frmMain
         Me.btnPrnReset.Name = "btnPrnReset"
         Me.btnPrnReset.Size = New System.Drawing.Size(75, 25)
         Me.btnPrnReset.TabIndex = 15
-        Me.btnPrnReset.Text = "&Reset"
+        Me.btnPrnReset.Text = "&Start Over"
         Me.btnPrnReset.UseVisualStyleBackColor = True
         '
         'btnPrnOK
