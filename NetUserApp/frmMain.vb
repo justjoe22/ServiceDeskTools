@@ -52,6 +52,21 @@ Public Class frmMain
         Me.Text = Me.Text + " v." + strVerDeployed
         Me.txtCount.SelectionAlignment = HorizontalAlignment.Center
 
+        ' See if Remote Viewer is available
+        Dim SourcePath As String = "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe" 'This is just an example string and could be anything, it maps to fileToCopy in your code.
+
+        Dim Filename As String = System.IO.Path.GetFileName(SourcePath) 'get the filename of the original file without the directory on it
+        Dim SavePath As String = System.IO.Path.Combine("C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\", Filename) 'combines the saveDirectory and the filename to get a fully qualified path.
+
+        If System.IO.File.Exists(SavePath) Then
+            'The file exists
+            txtPC.Visible = True
+            btnRemote.Visible = True
+        Else
+            'the file doesn't exist
+            txtPC.Visible = False
+            btnRemote.Visible = False
+        End If
 
         ' Sets Query User default Export file name.
         Me.txtQRYExport.Text = "Users-NeverExpire-Report-" + Date.Today.Month.ToString + Date.Today.Day.ToString + Date.Today.Year.ToString + ".csv"
@@ -150,7 +165,26 @@ Public Class frmMain
         ProcessObj.Start()
         ProcessObj.WaitForExit(1000)
 
-        Me.txtUSRResults.Text = ProcessObj.StandardOutput.ReadToEnd()
+        Dim results As String = ""
+
+        Do While Not ProcessObj.StandardOutput.EndOfStream
+            Dim readLine As String = ProcessObj.StandardOutput.ReadLine
+
+            results = results & readLine & vbCrLf
+
+            If readLine.Contains("Comment") Then
+                Dim Comment As String = readLine
+
+                Comment = Comment.Substring(Comment.IndexOf("|") + 1)
+                Comment = Comment.Substring(0, Comment.IndexOf("|"))
+
+                txtPC.Text = Comment.Trim
+            End If
+        Loop
+
+        Me.txtUSRResults.Text = results
+
+        ProcessObj.Close()
 
     End Sub
 
