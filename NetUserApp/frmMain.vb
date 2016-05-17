@@ -175,10 +175,13 @@ Public Class frmMain
             If readLine.Contains("Comment") Then
                 Dim Comment As String = readLine
 
-                Comment = Comment.Substring(Comment.IndexOf("|") + 1)
-                Comment = Comment.Substring(0, Comment.IndexOf("|"))
+                If Comment.IndexOf("|") > 0 Then
+                    Comment = Comment.Substring(Comment.IndexOf("|") + 1)
+                    Comment = Comment.Substring(0, Comment.IndexOf("|"))
 
-                txtPC.Text = Comment.Trim
+                    txtPC.Text = Comment.Trim
+                End If
+
             End If
         Loop
 
