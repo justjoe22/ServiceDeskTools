@@ -1210,29 +1210,34 @@ Err_btnACTReport_Click:
     End Sub
 
     Private Sub btnRemote_Click(sender As Object, e As EventArgs) Handles btnRemote.Click
+        Try
+            If txtPC.Text IsNot "" Then
 
-        If txtPC.Text IsNot "" Then
+                Dim remote_path As String = txtPC.Text
 
-            Dim remote_path As String = txtPC.Text
+                Dim ProcessIP As New Process()
 
-            Dim ProcessIP As New Process()
+                ProcessIP.StartInfo.FileName = "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe"
+                ProcessIP.StartInfo.Arguments = remote_path
 
-            ProcessIP.StartInfo.FileName = "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe"
-            ProcessIP.StartInfo.Arguments = remote_path
+                ProcessIP.StartInfo.UseShellExecute = True
+                ProcessIP.StartInfo.CreateNoWindow = False
+                ProcessIP.StartInfo.RedirectStandardOutput = False
 
-            ProcessIP.StartInfo.UseShellExecute = False
+                ProcessIP.Start()
+                ProcessIP.WaitForExit(1000)
 
-            ProcessIP.Start()
-            ProcessIP.WaitForExit(1000)
+                'ProcessIP.StartInfo.UserName = txtADMuser.Text
+                'ProcessIP.StartInfo.Password = LoadSecureString(txtPassword.Text)
+                'ProcessIP.StartInfo.Domain = "NA"
+                'ProcessIP.StartInfo.Verb = "runas"
+                'ProcessIP.Start()
 
-            'ProcessIP.StartInfo.UserName = txtADMuser.Text
-            'ProcessIP.StartInfo.Password = LoadSecureString(txtPassword.Text)
-            'ProcessIP.StartInfo.Domain = "NA"
-            'ProcessIP.StartInfo.Verb = "runas"
-            'ProcessIP.Start()
+            End If
 
-        End If
-
+        Catch ex As Exception
+            Throw New Exception("Error using Remote Control: " + ex.ToString)
+        End Try
     End Sub
 
     Public Shared Function LoadSecureString(ByVal input As String) As System.Security.SecureString
