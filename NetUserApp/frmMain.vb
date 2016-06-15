@@ -1203,7 +1203,7 @@ Err_btnACTReport_Click:
 
     Private Sub lblLinkMe_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblLinkMe.LinkClicked
 
-        Dim webAddress As String = "http://help.amwayconnect.com/Assets/Docs/Amway%20Remote%20Access%20-%20SSO%20Portal%20Password%20Quick%20Guide.pdf"
+        Dim webAddress As String = "http://departmentconnect/sites/help/srs/SiteAssets/Lists/TRPages/EditForm/SS%20OKTA%20Portal%20Password%20Quick%20Guide.docx"
 
         Process.Start(webAddress)
 
